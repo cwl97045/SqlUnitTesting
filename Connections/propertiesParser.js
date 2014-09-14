@@ -7,8 +7,6 @@ var readProperties = function (callback) {
   fs.readFile('../dbconfig/connection.properties','UTF-8', function (err, data){
     var urls = [];
     if(err) throw err;
-    
-
   });
 }
 

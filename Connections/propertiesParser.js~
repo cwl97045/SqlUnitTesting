@@ -7,7 +7,11 @@ var readProperties = function (callback) {
   fs.readFile('../dbconfig/connection.properties','UTF-8', function (err, data){
     var urls = [];
     if(err) throw err;
+<<<<<<< HEAD
+    
+=======
     console.log(data);
+>>>>>>> a9c1f40a1be61294a79e54bdff6d20fe9b3e6bae
 
   });
 }
