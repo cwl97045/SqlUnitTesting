@@ -3,8 +3,8 @@ var fs = require('fs');
   GOAL: Read and parse connection.properties file to create proper database url and connections
 */
 var inBetweenPeriods = /\.(.+)\./; 
-//var afterPeriod = ;
 var beforePeriod = /^(.*?\w+)/ ;
+var fileString = '../dbconfig/connection.properties';
 
 var connectionNameExistsInObject = function(obj, connectionName){
   if(obj[connectionName]){
@@ -15,9 +15,12 @@ var connectionNameExistsInObject = function(obj, connectionName){
 }
 
 
-var readProperties = function (callback) {
+module.exports.readProperties = function (callback, optionalFileString) {
+  if(optionalFileString){
+    fileString = optionalFileString; 
+  }
   var connections = {};
-  fs.readFile('../dbconfig/connection.properties','UTF-8', function (err, data){
+  fs.readFile(fileString,'UTF-8', function (err, data){
     if(err) throw err;
     var fileLines = data.split('\n');
     fileLines = fileLines.filter(function(item,index,array){if(item !== ' '){ return item;}});
@@ -27,21 +30,20 @@ var readProperties = function (callback) {
          connectionName = connectionName[0].slice(1, connectionName[0].length - 1);
        }
        if(connectionNameExistsInObject(connections, connectionName)){
-         var currentConnection = connections[connectionName];
+         var prop = line.split('.')[2].split('=');
+         connections[connectionName]['info'][prop[0]] = prop[1];
             
        } else {
          connections[connectionName] = {};
          connections[connectionName]['info'] = {};
          var cnnectTypeName = beforePeriod.exec(line)[0]; 
          connections[connectionName]['connectionType'] = cnnectTypeName;
+         var prop = line.split('.')[2].split('=');
+         connections[connectionName]['info'][prop[0]] = prop[1];
        }
-             
     });
-    console.log(connections);
   });
 }
-
-readProperties();
 
 
 
