@@ -9,7 +9,9 @@
    },
    "dependencies" : {
      "chai" : "*",
-     "mocha" : "*"
+     "mocha" : "*",
+     "grunt" : "*",
+     "grunt-mocha-test" : "*"
    }
 
 

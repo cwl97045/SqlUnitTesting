@@ -4,7 +4,7 @@ var fs = require('fs');
 */
 var inBetweenPeriods = /\.(.+)\./; 
 var beforePeriod = /^(.*?\w+)/ ;
-var fileString = '../dbconfig/connection.properties';
+var fileString = __dirname + '/../dbconfig/connection.properties';
 
 var connectionNameExistsInObject = function(obj, connectionName){
   if(obj[connectionName]){
@@ -20,7 +20,10 @@ module.exports.readProperties = function (callback, optionalFileString) {
     fileString = optionalFileString; 
   }
   var connections = {};
-  fs.readFile(fileString,'UTF-8', function (err, data){
+  var data = fs.readFileSync(fileString).toString();
+
+
+/*,'UTF-8', function (err, data){
     if(err) throw err;
     var fileLines = data.split('\n');
     fileLines = fileLines.filter(function(item,index,array){if(item !== ' '){ return item;}});
@@ -42,6 +45,7 @@ module.exports.readProperties = function (callback, optionalFileString) {
          connections[connectionName]['info'][prop[0]] = prop[1];
        }
     });
+    callback(connections);
   });
 }
 
