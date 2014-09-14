@@ -1,5 +1,5 @@
 {
-  "name" : "Sql Unit Testing",
+  "name" : "SqlUnitTesting",
   "version" : "0.0.1",
   "description" : "With the growing complexity of SQL queries, we need to be able to test our SQL to ensure it is doing everything it should be doing.",
   "author" : "Cwl97045 <laytonsunlimited@gmail.com>",
@@ -9,7 +9,9 @@
    },
    "dependencies" : {
      "chai" : "*",
-     "mocha" : "*"
+     "mocha" : "*",
+     "grunt" : "*",
+     "grunt-mocha" : "*"
    }
 
 

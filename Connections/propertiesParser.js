@@ -42,6 +42,7 @@ module.exports.readProperties = function (callback, optionalFileString) {
          connections[connectionName]['info'][prop[0]] = prop[1];
        }
     });
+    callback(connections);
   });
 }
 
