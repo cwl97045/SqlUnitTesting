@@ -1,0 +1,5 @@
+oracle.testConnection.hostname=localhost
+oracle.testConnection.port=8080
+oracle.testConnection.database=
+oracle.testConnection.user=
+oracle.testConnection.password=
