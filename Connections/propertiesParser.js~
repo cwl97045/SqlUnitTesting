@@ -22,10 +22,6 @@ module.exports.readProperties = function (callback, optionalFileString) {
   var connections = {};
   fs.readFile(fileString,'UTF-8', function (err, data){
     if(err) throw err;
-<<<<<<< HEAD
-    
-
-=======
     var fileLines = data.split('\n');
     fileLines = fileLines.filter(function(item,index,array){if(item !== ' '){ return item;}});
     fileLines.forEach(function(line, index, array){
@@ -40,11 +36,7 @@ module.exports.readProperties = function (callback, optionalFileString) {
        } else {
          connections[connectionName] = {};
          connections[connectionName]['info'] = {};
-<<<<<<< HEAD
-         var cnnectTypeName = beforePeriod.exec(line)[0];
-=======
          var cnnectTypeName = beforePeriod.exec(line)[0]; 
->>>>>>> Prop parser pro
          connections[connectionName]['connectionType'] = cnnectTypeName;
          var prop = line.split('.')[2].split('=');
          connections[connectionName]['info'][prop[0]] = prop[1];
@@ -52,8 +44,6 @@ module.exports.readProperties = function (callback, optionalFileString) {
     });
   });
 }
-
-readProperties();
 
 
 
