@@ -4,7 +4,6 @@ module.exports = function(grunt){
     mochaTest: {
       test : {
         options: {
-          reporter: 'spec',
           clearRequireCache: true
         },
         src: ['Testing/*.js']
@@ -12,5 +11,5 @@ module.exports = function(grunt){
     }
   });
   grunt.loadNpmTasks('grunt-mocha-test');
-  grunt.registerTaks('default', ['mochaTest']);
+  grunt.registerTask('default', ['mochaTest']);
 };

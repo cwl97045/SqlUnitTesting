@@ -3,3 +3,9 @@ oracle.testConnection.port=8080
 oracle.testConnection.database=
 oracle.testConnection.user=
 oracle.testConnection.password=
+
+mySql.mySqlTestConnection.hostname=localhost
+mySql.mySqlTestConnection.port=3036
+mySql.mySqlTestConnection.database=
+mySql.mySqlTestConnection.user=
+mySql.mySqlTestConnection.password=
