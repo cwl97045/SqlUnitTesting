@@ -1,7 +1,7 @@
 var Table = require('table'), Column = require('column'), Row = require('Row');
 
 module.exports.beforeTest = function(obj){
-  var userTable = new Table('user','SmileWithMe', 'mySqlTestConnection');
+  var userTable = new Table('yell','SmileWithMe', 'mySqlTestConnection');
   var idColumn = new Column('ID', 'INT');
   idColumn.primaryKey(true);
   idColumn.autoIncremant(true); 
@@ -14,9 +14,9 @@ module.exports.beforeTest = function(obj){
   password.notNull(true);
   userTable.setColumns([idColumn, emailColumn, password]);
   obj.addTableDefinition(userTable);
-  var dataRow = new Row('user');
-  dataRow.column('email').value('laytonsunlimited@gmail.com');
-  dataRow.column('password').value('H@rr');
+  var dataRow = new Row('yell');
+  dataRow.column('email').value("'laytonsunlimited@gmail.com'");
+  dataRow.column('password').value("'H@rr'");
   obj.addDataRow(dataRow);
   return obj;
 }

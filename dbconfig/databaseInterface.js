@@ -8,6 +8,9 @@ module.exports = function(){
        },
        executeQuery : function(connection, statement, callback){
          connection.query(statement, callback);
+       },
+       closeConnection : function(conn){
+         conn.close();
        }
      }
   };
