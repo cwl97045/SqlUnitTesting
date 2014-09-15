@@ -51,5 +51,9 @@ module.exports.createTableSql = function(table){
   return sqlStart;
 };
 
+module.exports.createRowSql = function(dataRow){
+
+};
+
 
 

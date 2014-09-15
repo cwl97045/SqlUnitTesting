@@ -7,17 +7,17 @@ connections.readProperties(function(data, err){
 });
 
 tests.forEach(function(item, index, array){
-  var setUp = item.beforeTest(new TestRunner());
-  setUp.tableDefinitions.forEach(function(item, index, array){
+  var Runner = item.beforeTest(new TestRunner());
+  Runner.tableDefinitions.forEach(function(item, index, array){
     var connection = conn[item.connection];
-    setUp.connection = conn[item.connection];
+    Runner.connection = conn[item.connection];
     var db = databaseInterfaces[connection.connectionType];
     var dbConnection = db.createConnection(connection.info);
     var statement = tableParser.createTableSql(item);
     db.executeQuery(dbConnection, statement, function(err, rows, fields){
       if(err) throw err;
       console.log('win');
-    }); 
+    });
   });
 });
 

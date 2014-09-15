@@ -1,4 +1,4 @@
-var Table = require('table'), Column = require('column');
+var Table = require('table'), Column = require('column'), Row = require('Row');
 
 module.exports.beforeTest = function(obj){
   var userTable = new Table('user','SmileWithMe', 'mySqlTestConnection');
@@ -14,6 +14,10 @@ module.exports.beforeTest = function(obj){
   password.notNull(true);
   userTable.setColumns([idColumn, emailColumn, password]);
   obj.addTableDefinition(userTable);
+  var dataRow = new Row;
+  dataRow.column('email').value('laytonsunlimited@gmail.com');
+  dataRow.column('password').value('H@rr');
+  obj.addDataRow(dataRow);
   return obj;
 }
 

@@ -27,7 +27,8 @@
      "tableParser" : "Parsers/tableParser.js",
      "register" : "SqlTests/register.js",
      "TestRunner" : "models/testRunner.js",
-     "DatabaseInterface" : "dbconfig/databaseInterface.js"
+     "DatabaseInterface" : "dbconfig/databaseInterface.js",
+     "Row" : "models/row.js"
    }
 
 
