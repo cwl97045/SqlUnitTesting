@@ -3,5 +3,5 @@ var basicTest = require('./basicTest');
 
 
 module.exports.register = function(){
-  return [];
+  return [basicTest];
 };
