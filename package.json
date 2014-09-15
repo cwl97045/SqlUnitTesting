@@ -18,7 +18,7 @@
      "grunt-named-modules" : "*"
    },
    "namedModules" : {
-     "table" : "models/table"
+     "table" : "models/table.js"
    }
 
 

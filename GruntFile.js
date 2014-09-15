@@ -11,5 +11,6 @@ module.exports = function(grunt){
     }
   });
   grunt.loadNpmTasks('grunt-mocha-test');
+  grunt.loadNpmTasks('grunt-named-modules');
   grunt.registerTask('default', ['mochaTest']);
 };
