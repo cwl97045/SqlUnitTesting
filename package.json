@@ -15,7 +15,8 @@
      "mocha" : "*",
      "grunt" : "*",
      "grunt-mocha-test" : "*",
-     "grunt-named-modules" : "*"
+     "grunt-named-modules" : "*",
+     "grunt-contrib-jshint" : "*"
    },
    "namedModules" : {
      "table" : "models/table.js",

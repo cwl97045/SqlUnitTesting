@@ -16,5 +16,5 @@ module.exports = function(name, database, connection){
      setConnection : function(connection){
        this.connection = connection;
      }
-   }
-}
+   };
+};

@@ -8,9 +8,14 @@ module.exports = function(grunt){
         },
         src: ['Testing/*.js']
       }
+    },
+    jshint : {
+      all:['Connections/*.js', 'models/*.js', 'Testing/*.js']           
     }
   });
   grunt.loadNpmTasks('grunt-mocha-test');
   grunt.loadNpmTasks('grunt-named-modules');
-  grunt.registerTask('default', ['mochaTest']);
+  grunt.loadNpmTasks('grunt-contrib-jshint');
+  grunt.registerTask('default', ['mochaTest', 'jshint']);
+  grunt.registerTask('hint', ['jshint']);
 };

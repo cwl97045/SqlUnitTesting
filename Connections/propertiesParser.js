@@ -12,7 +12,7 @@ var connectionNameExistsInObject = function(obj, connectionName){
   } else {
     return false;
   }
-}
+};
 
 
 module.exports.readProperties = function (callback, optionalFileString) {
@@ -29,20 +29,20 @@ module.exports.readProperties = function (callback, optionalFileString) {
         connectionName = connectionName[0].slice(1, connectionName[0].length - 1);
       }
       if(connectionNameExistsInObject(connections, connectionName)){
-        var prop = line.split('.')[2].split('=');
-        connections[connectionName]['info'][prop[0]] = prop[1];
+        var propFound = line.split('.')[2].split('=');
+        connections[connectionName].info[propFound[0]] = propFound[1];
             
       } else {
         connections[connectionName] = {};
-        connections[connectionName]['info'] = {};
+        connections[connectionName].info = {};
         var cnnectTypeName = beforePeriod.exec(line)[0]; 
-        connections[connectionName]['connectionType'] = cnnectTypeName;
+        connections[connectionName].connectionType = cnnectTypeName;
         var prop = line.split('.')[2].split('=');
-        connections[connectionName]['info'][prop[0]] = prop[1];
+        connections[connectionName].info[prop[0]] = prop[1];
       }
   });
   callback(connections);
-}
+};
 
 
 

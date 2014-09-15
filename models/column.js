@@ -13,5 +13,5 @@ module.exports = function(name, type){
     autoIncremant : function(bool){
       this.autoInc = bool;
     }
-  }
-}
+  };
+};
