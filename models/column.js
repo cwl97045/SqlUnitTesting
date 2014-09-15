@@ -3,6 +3,7 @@ module.exports = function(name, type){
     name : name,
     priKey : false,
     autoInc : false,
+    nul : false,
     type : type,
     setType : function (type){
       this.type = type;
@@ -12,6 +13,9 @@ module.exports = function(name, type){
     },
     autoIncremant : function(bool){
       this.autoInc = bool;
+    },
+    notNull : function(bool){
+      this.nul = bool;
     }
   };
 };
