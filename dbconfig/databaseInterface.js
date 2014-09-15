@@ -1,10 +1,10 @@
 var mySql = require('mysql');
 
-module.export = function(){
+module.exports = function(){
   return {
     'mySql' : {
        createConnection : function(connInfo){
-         return mySql.createConnection(conninfo);	 
+         return mySql.createConnection(connInfo);	 
        },
        exectureQuery : function(connection, statement, callback){
          connection.connect();
@@ -12,5 +12,5 @@ module.export = function(){
          connection.end();
        }
      }
-  }
-}
+  };
+};

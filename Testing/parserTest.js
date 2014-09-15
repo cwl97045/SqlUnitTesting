@@ -9,16 +9,6 @@ describe('parser suite', function(){
     });
     assert.isNotNull(connections);
   });
-  it('should have read the properties file for testConnection', function() {
-    var connection = connections.testConnection;    
-    assert.equal(connection.connectionType, 'oracle');
-    var info = connection.info;
-    assert.equal(info.hostname, 'localhost');
-    assert.equal(info.port, '8080');
-    assert.equal(info.database, 'blah');
-    assert.equal(info.user, 'blahblah');
-    assert.equal(info.password, 'penssss');
-  });
   it('should have read the properties file for mySqlTestConnection', function () {
     var connection = connections.mySqlTestConnection; 
     assert.equal(connection.connectionType, 'mySql');
