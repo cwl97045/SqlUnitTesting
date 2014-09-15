@@ -1,4 +1,4 @@
-var assert = require('chai').assert, Table = require('table');
+var assert = require('chai').assert, Table = require('table'), Column = require('column');
 
 describe('Table Model Suite', function(){
   it('Should create a table with a name, database, and connection', function(){
@@ -22,5 +22,13 @@ describe('Table Model Suite', function(){
     assert.equal(newTable.database, 'Hello');
     newTable.setConnection('Love');
     assert.equal(newTable.connection, 'Love');
+  });
+  it('should deal with it\'s columns', function(){
+    var newColumn = new Column('name', 'VARCHAR');
+    var otherColumns = new Column('thing', 'INT');
+    var newTable = new Table('red', 'head', 'babe');
+    newTable.addColumn(newColumn);
+    newTable.addColumn(otherColumns);
+    assert.equal(newTable.columns.length, 2);
   });
 });
