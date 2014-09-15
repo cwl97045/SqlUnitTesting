@@ -6,6 +6,18 @@ module.exports = function(name, type){
     nul : false,
     fk : false,
     fkTable : '',
+    fkColumn : '',
+    foreignKey : function (bool){
+      this.fk = bool;
+      return this.setFkTable;
+    },
+    setFkTable : function(table){
+      this.fkTable = table;
+      return this.setFkTableColumn;
+    },
+    setFkTableColumn : function(column){
+      this.fkColumn = column;
+    },
     type : type,
     setType : function (type){
       this.type = type;

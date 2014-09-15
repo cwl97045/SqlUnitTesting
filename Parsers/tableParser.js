@@ -4,8 +4,7 @@ connections.readProperties(function(data,err){
   conn = data;
 });
 module.exports.createTableSql = function(table){
-  var columns = table.columns, sqlStart = 'CREATE TABLE ', pK = '', connectionType = conn[table.connection].connectionType, fk = '';
-  console.log(connectionType);
+  var columns = table.columns, sqlStart = 'CREATE TABLE ', pK = '', connectionType = conn[table.connection].connectionType, fk = [];
   sqlStart += stringUtils.toSqlCase(table.name) + '\n';
   sqlStart += '(\n';
   columns.forEach(function(column, index, array){
@@ -23,6 +22,13 @@ module.exports.createTableSql = function(table){
         pK = stringUtils.toSqlCase(column.name);
       }
     }
+    if(column.fk){
+      if(connectionType.toLowerCase() === 'mySql'){
+        fk.add(column);
+      } else {
+        endOfLine += ' FOREIGN KEY REFERENCES ' + stringUtils.toSqlCase(fk.fkTable) + '(' + stringUtils.toSqlCase(fk.fkColumn) + ')';
+      }
+    }
     if(index + 1 !== array.length || pK.length > 1){
       endOfLine += ',';
     }
@@ -30,8 +36,16 @@ module.exports.createTableSql = function(table){
   });
   if(pK){
     if(connectionType.toLowerCase() === 'mysql'){
-      sqlStart += 'PRIMARY KEY (' + pK + ')\n';      
+      sqlStart += 'PRIMARY KEY (' + pK + ')';      
     }
+  }
+  if(fk && fk[0]){
+    sqlStart += ',\n';
+    fk.forEach(function(item,index){
+      if(connectionType.toLowerCase() === 'mysql'){
+        sqlStart += 'FORIEGN KEY (' + stringUtils.toSqlCase(fk.name) + ') REFERENCES ' + stringUtils.toSqlCase(fk.fkTable) + '(' + stringUtils.toSqlCase(fk.fkColumn) + ')';
+      }
+    });
   }
   sqlStart += ')';
   return sqlStart;
