@@ -7,9 +7,7 @@ module.exports = function(){
          return mySql.createConnection(connInfo);	 
        },
        executeQuery : function(connection, statement, callback){
-         connection.connect();
          connection.query(statement, callback);
-         connection.end();
        }
      }
   };

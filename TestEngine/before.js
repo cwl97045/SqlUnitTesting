@@ -13,7 +13,7 @@ tests.forEach(function(item, index, array){
     Runner.db = databaseInterfaces[Runner.connection.connectionType];
     Runner.dbConnection = Runner.db.createConnection(Runner.connection.info);
     var statement = tableParser.createTableSql(item);
-    Runner.db.executeQuery(dbConnection, statement, function(err, rows, fields){
+    Runner.db.executeQuery(Runner.dbConnection, statement, function(err, rows, fields){
       if(err) throw err;
       console.log('win');
     });
