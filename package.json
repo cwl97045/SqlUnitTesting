@@ -20,7 +20,8 @@
    },
    "namedModules" : {
      "table" : "models/table.js",
-     "column" : "models/column.js"
+     "column" : "models/column.js",
+     "propertiesParser" : "Parsers/propertiesParser.js"
    }
 
 

@@ -1,4 +1,4 @@
-var assert = require('chai').assert, parser = require('./../Connections/propertiesParser.js');
+var assert = require('chai').assert, parser = require('propertiesParser');
 
 describe('parser suite', function(){
   var connections;
