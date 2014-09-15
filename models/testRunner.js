@@ -3,6 +3,7 @@ module.exports = function(){
     tableDefinitions : [],
     addTableDefinition : function(table){
       this.tableDefinitions.push(table);
-    }
+    },
+    connection : ''
   };
 };

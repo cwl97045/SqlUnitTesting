@@ -6,8 +6,8 @@ module.exports.beforeTest = function(obj){
   idColumn.primaryKey(true);
   idColumn.autoIncremant(true); 
   idColumn.notNull(true);
-  var stateColumn = new Column(STATE_ID, 'INT');
-  stateColumn.foreignKey(true)('state')('ID');
+  var stateColumn = new Column('STATE_ID', 'INT');
+  stateColumn.foreignKey(true).forColumn('ID').inTable('state');
   var emailColumn = new Column('email', 'VARCHAR(75)');
   emailColumn.notNull(true);
   var password = new Column('password', 'VARCHAR(18)');
