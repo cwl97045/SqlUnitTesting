@@ -11,7 +11,6 @@ describe('Table Parser Test Suite', function(){
     nameColumn.notNull(true);
     newTable.setColumns([idColumn, nameColumn]);
     var tableSql = tableParser.createTableSql(newTable);
-    console.log(tableSql);
     assert.equal(tableSql,'CREATE TABLE USER\n(\nID INT AUTO_INCREMENT NOT NULL,\nNAME VARCHAR(35) NOT NULL,\nPRIMARY KEY (ID)\n)');
   });
 });

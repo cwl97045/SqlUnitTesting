@@ -6,5 +6,7 @@ describe('String Utilities Test Suite', function(){
     assert.equal(str, 'RED_HAT');
     var otherStr = stringUtil.toSqlCase('hat');
     assert.equal(otherStr, 'HAT');
+    var nextStr = stringUtil.toSqlCase('user id column');
+    assert.equal(nextStr, 'USER_ID_COLUMN');
   });
 });
