@@ -1,19 +1,20 @@
-
-moduel.export = function(name, database, connection){
-   this.name = name,
-   this.columns = [],
-   this.addColumn = function(column){
-     this.columns.push(column);
-   },
-   this.setColumns = function(columnSet){
-     this.columns = columnSet;
-   },
-   this.database = database,
-   this.connection = connection,
-   this.setDatabase = function(database){
-     this.database = database;
-   },
-   this.setConnection = function(connection){
-     this.connection = connection;
+module.exports = function(name, database, connection){
+   return {
+     name : name,
+     columns : [],
+     addColumn : function(column){
+       this.columns.push(column);
+     },
+     setColumns : function(columnSet){
+       this.columns = columnSet;
+     },
+     database : database,
+     connection : connection,
+     setDatabase : function(database){
+       this.database = database;
+     },
+     setConnection : function(connection){
+       this.connection = connection;
+     }
    }
 }
