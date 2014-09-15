@@ -22,6 +22,6 @@ describe('Row Parser Test Suite', function(){
     dataRow.column('password').value('redhat64');
     dataRow.column('email').value('redred@gmail.com');
     var sql = tableParser.createRowSql(dataRow);
-    assert.equal(sql,'INSERT INTO USERS (USERNAME,PASSWORD,EMAIL) VALUES (cwl97045,redhat64,redred@gmail.com)' );
+    assert.equal(sql,'INSERT INTO USERS (USERNAME,PASSWORD,EMAIL) VALUES (cwl97045,redhat64,redred@gmail.com)');
   });
 });

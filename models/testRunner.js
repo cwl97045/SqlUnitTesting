@@ -2,6 +2,8 @@ module.exports = function(){
   return {
     tableDefinitions : [],
     dataRows : [],
+    db : {},
+    dbInterface : {},
     addDataRow : function(row){
       this.dataRows.push(row);
     },
