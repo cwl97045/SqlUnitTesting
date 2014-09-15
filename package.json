@@ -7,11 +7,18 @@
      "type" : "git",
      "url" : "https://github.com/cwl97045/SqlUnitTesting.git"
    },
+   "scripts" : {
+     "postinstall" : "grunt namedModules"
+   },
    "dependencies" : {
      "chai" : "*",
      "mocha" : "*",
      "grunt" : "*",
-     "grunt-mocha-test" : "*"
+     "grunt-mocha-test" : "*",
+     "grunt-named-modules" : "*"
+   },
+   "namedModules" : {
+     "table" : "models/table"
    }
 
 
