@@ -21,7 +21,8 @@
    "namedModules" : {
      "table" : "models/table.js",
      "column" : "models/column.js",
-     "propertiesParser" : "Parsers/propertiesParser.js"
+     "propertiesParser" : "Parsers/propertiesParser.js",
+     "stringUtils" : "Utility/stringUtility.js"
    }
 
 

@@ -7,7 +7,7 @@ var toSqlCase = function(string){
 module.exports.parseTable = function(table){
   var columns = table.columns;
   
-}
+};
 
 
 
