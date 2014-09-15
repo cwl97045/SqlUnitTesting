@@ -14,10 +14,9 @@ describe('parser suite', function(){
     assert.equal(connection.connectionType, 'mySql');
     var info = connection.info;
     assert.equal(info.hostname, 'localhost');
-    assert.equal(info.port, '37322');
-    assert.equal(info.database, 'sqlunittesting');
-    assert.equal(info.user, 'cwl97045');
-    assert.equal(info.password, 'barkdust1');
+    assert.equal(info.port, '3306');
+    assert.equal(info.database, 'TWITTER');
+    assert.equal(info.user, 'root');
   });
 });
 
