@@ -10,6 +10,7 @@ tests.forEach(function(item, index, array){
   var setUp = item.beforeTest(new TestRunner());
   setUp.tableDefinitions.forEach(function(item, index, array){
     var connection = conn[item.connection];
+    setUp.connection = conn[item.connection];
     var db = databaseInterfaces[connection.connectionType];
     var dbConnection = db.createConnection(connection.info);
     var statement = tableParser.createTableSql(item);

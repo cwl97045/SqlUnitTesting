@@ -4,6 +4,7 @@ module.exports = function(){
     addTableDefinition : function(table){
       this.tableDefinitions.push(table);
     },
-    connection : ''
+    connection : {},
+    insertStatements : {}
   };
 };

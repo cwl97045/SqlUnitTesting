@@ -6,7 +6,7 @@ module.exports = function(){
        createConnection : function(connInfo){
          return mySql.createConnection(connInfo);	 
        },
-       exectueQuery : function(connection, statement, callback){
+       executeQuery : function(connection, statement, callback){
          connection.connect();
          connection.query(statement, callback);
          connection.end();
