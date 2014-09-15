@@ -1,21 +1,27 @@
 var stringUtils = require('stringUtils');
 
 module.exports.createTableSql = function(table){
-  var columns = table.columns, sqlStart = 'CREATE TABLE ', pK;
+  var columns = table.columns, sqlStart = 'CREATE TABLE ', pK = '';
   sqlStart += stringUtils.toSqlCase(table.name) + '\n';
-  sqlStart += '(\n'
+  sqlStart += '(\n';
   columns.forEach(function(column, index, array){
-    var comma = ',';
-    if(index + 1 === array.length){
-      comma = '';
-    }
+    var endOfLine = '';    
     if(column.priKey){
-      pk = stringUtils.toSqlCase(column.name);
+      pK = stringUtils.toSqlCase(column.name);
     }
-    sqlStart += stringUtils.toSqlCase(column.name) + ' ' + column.type + comma + '\n';
+    if(column.autoInc){
+      endOfLine += ' AUTO_INCREMENT';  
+    }
+    if(column.nul){
+      endOfLine += ' NOT NULL';
+    }
+    if(index + 1 !== array.length || pK.length > 1){
+      endOfLine += ',';
+    }
+    sqlStart += stringUtils.toSqlCase(column.name) + ' ' + column.type + endOfLine + '\n';
   });
   if(pK){
-    sqlStart += 'PRIMARY KEY (' + pk + ')\n';
+    sqlStart += 'PRIMARY KEY (' + pK + ')\n';
   }
   sqlStart += ')';
   return sqlStart;

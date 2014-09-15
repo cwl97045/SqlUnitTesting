@@ -22,7 +22,8 @@
      "table" : "models/table.js",
      "column" : "models/column.js",
      "propertiesParser" : "Parsers/propertiesParser.js",
-     "stringUtils" : "Utility/stringUtility.js"
+     "stringUtils" : "Utility/stringUtility.js",
+     "tableParser" : "Parsers/tableParser.js"
    }
 
 
