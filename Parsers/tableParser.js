@@ -53,7 +53,7 @@ module.exports.createTableSql = function(table){
 
 module.exports.createRowSql = function(dataRow){
 
-};
+};	
 
 
 

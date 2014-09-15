@@ -10,7 +10,7 @@ module.exports = function(grunt){
       }
     },
     jshint : {
-      all:['Connections/*.js', 'models/*.js', 'Testing/*.js', 'Parsers/*.js']           
+      all:['Connections/*.js', 'models/*.js', 'Testing/*.js', 'Parsers/*.js', 'dbconfig/*.js', 'TestingEngine/*.js']           
     }
   });
   grunt.loadNpmTasks('grunt-mocha-test');
