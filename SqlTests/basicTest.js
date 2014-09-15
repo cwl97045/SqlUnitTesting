@@ -1,7 +1,7 @@
 var Table = require('table'), Column = require('column');
 
 module.exports.beforeTest = function(obj){
-  var userTable = function('user','SmileWithMe', 'testConnection');
+  var userTable = new Table('user','SmileWithMe', 'testConnection');
   var idColumn = new Column('ID', 'INT');
   idColumn.primaryKey(true);
   idColumn.autoIncremant(true); 
@@ -12,6 +12,7 @@ module.exports.beforeTest = function(obj){
   password.notNull(true);
   userTable.setColumns([idColumn, emailColumn, password]);
   obj.addTableDefinition(userTable);
+  return obj;
 }
 
 module.exports.test = function(obj){

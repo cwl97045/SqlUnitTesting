@@ -23,7 +23,9 @@
      "column" : "models/column.js",
      "propertiesParser" : "Parsers/propertiesParser.js",
      "stringUtils" : "Utility/stringUtility.js",
-     "tableParser" : "Parsers/tableParser.js"
+     "tableParser" : "Parsers/tableParser.js",
+     "register" : "SqlTests/register.js",
+     "TestRunner" : "models/testRunner.js"
    }
 
 
