@@ -10,7 +10,7 @@ describe('Table Parser Test Suite', function(){
     var nameColumn = new Column('name', 'VARCHAR(35)');
     nameColumn.notNull(true);
     newTable.setColumns([idColumn, nameColumn]);
-    var tableSql = tableParser.createTableSql(newTable);
-    assert.equal(tableSql,'CREATE TABLE USER\n(\nID INT AUTO_INCREMENT NOT NULL,\nNAME VARCHAR(35) NOT NULL,\nPRIMARY KEY (ID)\n)');
+    var tableSql = tableParser.createTableSql(newTable);	
+    assert.equal(tableSql,'CREATE TABLE USER\n(\nID INT AUTO_INCREMENT NOT NULL PRIMARY KEY,\nNAME VARCHAR(35) NOT NULL\n)');
   });
 });

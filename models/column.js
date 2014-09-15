@@ -4,6 +4,8 @@ module.exports = function(name, type){
     priKey : false,
     autoInc : false,
     nul : false,
+    fk : false,
+    fkTable : '',
     type : type,
     setType : function (type){
       this.type = type;
