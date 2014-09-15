@@ -8,15 +8,18 @@ module.exports = function(name, type){
     fkTable : '',
     fkColumn : '',
     foreignKey : function (bool){
+      var that = this;
       this.fk = bool;
-      return this.setFkTable;
-    },
-    setFkTable : function(table){
-      this.fkTable = table;
-      return this.setFkTableColumn;
-    },
-    setFkTableColumn : function(column){
-      this.fkColumn = column;
+      return {
+        forColumn : function(column){
+          that.fkColumn = column;
+          return {
+            inTable : function(table){
+              that.fkTable = table;
+            }
+          };
+        }
+      };
     },
     type : type,
     setType : function (type){

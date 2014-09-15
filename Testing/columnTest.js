@@ -20,4 +20,11 @@ describe('column test suite', function(){
     newColumn.autoIncremant(true);
     assert.isTrue(newColumn.autoInc);
   });
+  it('should deal with fk\'s properly', function(){
+    var newColumn = new Column('adfasd', 'asdfa');
+    newColumn.foreignKey(true).forColumn('ID').inTable('State');
+    assert.isTrue(newColumn.fk);
+    assert.equal(newColumn.fkTable, 'State');
+    assert.equal(newColumn.fkColumn, 'ID');
+  });
 });
