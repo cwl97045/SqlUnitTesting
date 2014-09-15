@@ -16,7 +16,8 @@
      "grunt" : "*",
      "grunt-mocha-test" : "*",
      "grunt-named-modules" : "*",
-     "grunt-contrib-jshint" : "*"
+     "grunt-contrib-jshint" : "*",
+     "mysql" : "*"
    },
    "namedModules" : {
      "table" : "models/table.js",
@@ -25,7 +26,8 @@
      "stringUtils" : "Utility/stringUtility.js",
      "tableParser" : "Parsers/tableParser.js",
      "register" : "SqlTests/register.js",
-     "TestRunner" : "models/testRunner.js"
+     "TestRunner" : "models/testRunner.js",
+     "DatabaseInterface" : "dbconfig/databaseInterface.js"
    }
 
 
