@@ -14,12 +14,14 @@ tests.forEach(function(item, index, array){
     Runner.db = databaseInterfaces[Runner.connection.connectionType];
     Runner.dbConnection = Runner.db.createConnection(Runner.connection.info);
     var statement = tableParser.createTableSql(item);
+    //SETUP TO RUN AS A SCRIPT
     Runner.db.executeQuery(Runner.dbConnection, statement, function(err, rows, fields){
       if(err) throw err;
     });
   });
   Runner.dataRows.forEach(function(item,index,array){
     var statement = tableParser.createRowSql(item);
+    //SETUP TO RUN AS A SCRIPT
     Runner.db.executeQuery(Runner.dbConnection, statement, function(err,rows,fields){
       if(err) throw err;
     });
