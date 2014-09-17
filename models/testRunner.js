@@ -11,6 +11,9 @@ module.exports = function(){
       this.tableDefinitions.push(table);
     },
     connection : {},
-    
+    beforeSql : [],
+    addSql : function(sql){
+      this.beforeSql.push(sql);
+    }
   };
 };
