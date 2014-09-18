@@ -85,6 +85,7 @@ describe('BeforeModule Unit Test Suit', function(){
        ]
      };
      var retRunner = beforeModule.generateSql(mockTestRunner, tableParsers, parsers,stringUtils);
+     assert.equal(mockTestRunner.beforeSql.length, 1);
      
   });
 });
