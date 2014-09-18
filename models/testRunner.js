@@ -21,6 +21,13 @@ module.exports = function(){
     },
     setDatabase : function(dbName){
       this.database = dbName;
-    }
+    },
+    sqlToTest : function(sql){
+      var that = this;
+      this.dbInterface.executeQuery(this, sql, function(err, rows, fields){
+        that.results = rows;
+      });
+    },
+    results : {}
   };
 };

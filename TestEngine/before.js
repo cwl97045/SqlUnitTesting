@@ -27,15 +27,16 @@ module.exports.generateSql = function (TestRunner, TableParser, dbParser ,string
   };
   return TestRunner;
 };
-/*
+
 module.exports.executeBeforeSql = function (TestRunner, callback){
   var beforeSql = TestRunner.beforeSql;
-  var TestRunner.dbConnection = TestRunner.db.createConnection(TestRunner.connection.info);
+  TestRunner[dbConnection] = TestRunner.db.createConnection(TestRunner.connection.info);
   beforeSql.forEach(function(sql){
     TestRunner.executeQuery(TestRunner.dbConnection, sql, function(err, rows, fields){
       if(err) throw err;
+    });
   });
   callback();
-};*/
+};
 
 
