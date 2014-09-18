@@ -28,7 +28,8 @@
      "register" : "SqlTests/register.js",
      "TestRunner" : "models/testRunner.js",
      "DatabaseInterface" : "dbconfig/databaseInterface.js",
-     "Row" : "models/row.js"
+     "Row" : "models/row.js",
+     "DBParser" : "Parsers/dbParserRegister.js"
    }
 
 
