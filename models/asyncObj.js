@@ -5,5 +5,5 @@ module.exports = function(sql, testRunner){
       callback(null);
     });
   };
-}
+};
 
