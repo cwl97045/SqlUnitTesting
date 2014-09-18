@@ -6,29 +6,24 @@ Version
 
 Purpose
 --------
-* Wanted to build something cool that could assist me at my job, which often requires complex sql to following very specific rules. 
-___________
+* Wanted to build something cool that could assist me at my job, which often requires complex sql to following very specific rules.
 Current Features
 ----------------
  * none
-_______________
 Developed + Tested Things
 ----------------
 * Before Test Module - Encompasses Properties Parsing, Table Parsing and many more modules
 
-_____________
 
 Currently Developing
 ----------------------
 * Test Module
-____________
 
 
 Planning
 --------
 * Features that will actually make this thing work
 * Fitnesse over the top implementation
-______________________________________
 
 Contributing
 --------
