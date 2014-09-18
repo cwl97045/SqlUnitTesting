@@ -24,7 +24,7 @@ module.exports.beforeTest = function(obj){
 }
 
 module.exports.test = function(obj){
-  var result = obj.sqlToTest('SELECT * FROM TABLE');
+  var result = obj.sqlToTest('SELECT * FROM USER');
 
 }
 

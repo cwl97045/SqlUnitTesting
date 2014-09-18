@@ -9,4 +9,10 @@ describe('String Utilities Test Suite', function(){
     var nextStr = stringUtil.toSqlCase('user id column');
     assert.equal(nextStr, 'USER_ID_COLUMN');
   });
+  it('Should wrap things in quotes so they don\'t have too', function(){
+    var str = stringUtil.wrapInQuotes('Man');
+    assert.equal(str, "'Man'");
+  });
 });
+
+
