@@ -1,3 +1,5 @@
+var stringUtils = require('stringUtils');
+
 module.exports = function(table){
   return {
     map : {},
@@ -6,7 +8,7 @@ module.exports = function(table){
       var that = this, saveCol = column;
       return {
         value : function(value){
-          that.map[saveCol] = value;
+          that.map[saveCol] = stringUtils.wrapInQuotes(value);
         }
       };
     }
