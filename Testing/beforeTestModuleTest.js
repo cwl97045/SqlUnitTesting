@@ -1,14 +1,5 @@
 var beforeModule = require('BeforeModule'), assert = require('chai').assert, tableParsers = require('tableParser'), stringUtils = require('stringUtils'), parsers = require('DBParser').register();
-/*module.exports.connectionSetUp = function(Test, Connections, databaseInterfaces){
-  var setUp = Test.before(new TestRunner()), conn;
-  Connections.readProperties(function(data, err){
-    if(err) throw err;
-      conn = data;
-  });
-  setUp.connection = conn[setUp.connectionName];
-  setUp.db = databaseInterfaces[setUp.connection.connectionType];
-  return setUp;
-};*/
+
 describe('BeforeModule Unit Test Suit', function(){
   it('should attach connection data to the TestRunner', function (){
     var mockTestRunner = {
@@ -86,7 +77,6 @@ describe('BeforeModule Unit Test Suit', function(){
      };
      var retRunner = beforeModule.generateSql(mockTestRunner, tableParsers, parsers,stringUtils);
      assert.equal(mockTestRunner.beforeSql.length, 1);
-     assert.equal(mockTestRunner.beforeSql[0], 'CREATE TABLE FAKE_TABLE ( FAKE_COL_ONE VARCHAR(10),FAKE_ID INT NOT NULL AUTO_INCREMENT,FOR_KEY INT NOT NULL, PRIMARY KEY (FAKE_ID), FOREIGN KEY (FOR_KEY) REFERENCES OTHER_FAKE_TABLE(OTHER_FAKE_ID))');
-     
+     assert.equal(mockTestRunner.beforeSql[0], 'CREATE TABLE FAKE_TABLE ( FAKE_COL_ONE VARCHAR(10),FAKE_ID INT NOT NULL AUTO_INCREMENT,FOR_KEY INT NOT NULL, PRIMARY KEY (FAKE_ID), FOREIGN KEY (FOR_KEY) REFERENCES OTHER_FAKE_TABLE(OTHER_FAKE_ID))');     
   });
 });
