@@ -2,7 +2,6 @@ var stringUtils = require('stringUtils'), parsers = require('DBParser').register
 
 module.exports.createTableSql = function(TestRunner,table){
   var connectionType = TestRunner.connection.connectionType;
-  console.log(parsers);
   return parsers[connectionType.toLowerCase()](table, stringUtils);     
 };
 
