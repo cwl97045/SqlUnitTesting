@@ -12,20 +12,21 @@ module.exports.connectionSetUp = function(Test, Connections, databaseInterfaces)
   return setUp;
 }
 
-module.exports.generateSql = function (TestRunner, TableParser){
+module.exports.generateSql = function (TestRunner, TableParser, stringUtils){
   var tableDefinitionToRun = (TestRunner.tableDefinitions.length > 0), dataRowsToRun =(TestRunner.dataRows.length > 0);
   if(tableDefinitionToRun){
     var definitions = TestRunner.tableDefinitions;
     definitions.forEach(function(table){
-      TestRunner.addSql(TableParser.createTableSql(TestRunner, table));
+      TestRunner.addSql(TableParser.createTableSql(TestRunner,table, TableParser, stringUtils));
     });
   }
   if(dataRowsToRun){
     var dataRowsToRun = TestRunner.dataRows;
-    dataRowsToRun.forEach(function(){
-    
+    dataRowsToRun.forEach(function(row){
+      TestRunner.addSql(TableParser.createRowSql(row, stringUtils));
     });
   }
+  return TestRunner;
 }
 
 
