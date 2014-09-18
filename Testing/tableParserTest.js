@@ -2,7 +2,7 @@ var assert = require('chai').assert, Table = require('table'), Column = require(
 
 describe('Table Parser Test Suite', function(){
   it('Should parse a  simple table object down to a basic mySql query', function(){
-    var newTable = new Table('user', 'site', 'mySqlTestConnection');
+    var newTable = new Table('user');
     var idColumn = new Column('ID', 'INT');
     idColumn.notNull(true);
     idColumn.autoIncremant(true);
