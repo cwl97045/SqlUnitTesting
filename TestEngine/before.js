@@ -12,15 +12,15 @@ module.exports.connectionSetUp = function(Test, Connections, databaseInterfaces)
 };
 
 module.exports.generateSql = function (TestRunner, TableParser, dbParser ,stringUtils){
-  var tableDefinitionToRun = (TestRunner.tableDefinitions.length > 0), dataRowsToRun =(TestRunner.dataRows.length > 0);
+  var tableDefinitionToRun = (TestRunner.tableDefinitions.length > 0), dataRowsToRun =(TestRunner.dataRows.length > 0), rows = [], definitions = [];
   if(tableDefinitionToRun){
-    var definitions = TestRunner.tableDefinitions;
+    definitions = TestRunner.tableDefinitions;
     definitions.forEach(function(table){
       TestRunner.addSql(TableParser.createTableSql(TestRunner.connection.connectionType,table, dbParser, stringUtils));
     });
   }
   if(dataRowsToRun){
-    var rows = TestRunner.dataRows;
+    rows = TestRunner.dataRows;
     rows.forEach(function(row){
       TestRunner.addSql(TableParser.createRowSql(row, stringUtils));
     });

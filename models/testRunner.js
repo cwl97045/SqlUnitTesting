@@ -12,6 +12,7 @@ module.exports = function(){
     },
     connection : {},
     beforeSql : [],
+    afterSql: [],
     connectionName : '',
     addSql : function(sql){
       this.beforeSql.push(sql);
@@ -32,6 +33,12 @@ module.exports = function(){
     testResults : [],
     addTestResult : function(testResult){
       this.testResults.push(testResult);
+    },
+    dropTable : function(tableName){
+      this.afterSql.push('DROP TABLE ' + tableName);
+    },
+    addCleanUpSql : function(sql){
+      this.afterSql.push(sql);
     }
   };
 };

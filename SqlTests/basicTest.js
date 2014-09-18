@@ -29,6 +29,6 @@ module.exports.test = function(obj){
 };
 
 module.exports.after = function(obj){
-
-
+  obj.dropTable('YELL');
+  return obj;
 };
