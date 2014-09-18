@@ -17,8 +17,8 @@ module.exports.beforeTest = function(obj){
   userTable.setColumns([idColumn, emailColumn, password]);
   obj.addTableDefinition(userTable);
   var dataRow = new Row('yell');
-  dataRow.column('email').value("'laytonsunlimited@gmail.com'");
-  dataRow.column('password').value("'H@rr'");
+  dataRow.column('email').value("laytonsunlimited@gmail.com");
+  dataRow.column('password').value("H@rr");
   obj.addDataRow(dataRow);
   return obj;
 }
