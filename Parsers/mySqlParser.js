@@ -25,7 +25,7 @@ module.exports.parse = function (table, stringUtils){
   }
   if(foreignKeys[0]){
     foreignKeys.forEach(function(column){
-      sqlString += ', FOREIGN KEY ( ' + column.name + ' ) REFERENCES ' + stringUtils.toSqlCase(column.fkTable) + '( ' + stringUtils.toSqlCase(column.fkColumn) + ')';
+      sqlString += ', FOREIGN KEY (' + stringUtils.toSqlCase(column.name) + ') REFERENCES ' + stringUtils.toSqlCase(column.fkTable) + '(' + stringUtils.toSqlCase(column.fkColumn) + ')';
     });
   } 
   return sqlString + ')'; 
