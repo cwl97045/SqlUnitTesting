@@ -68,14 +68,14 @@ describe('BeforeModule Unit Test Suit', function(){
              { 
                name : 'Fake ID',
                type : 'INT',
-               nul : false,
-               autonInc : true,
+               nul : true,
+               autoInc : true,
                priKey : true
              },
              {
                name : 'for Key',
                type : 'INT',
-               nul : false,
+               nul : true,
                fk : true,
                fkTable : 'Other Fake Table',
                fkColumn : 'Other Fake Id'
@@ -86,6 +86,7 @@ describe('BeforeModule Unit Test Suit', function(){
      };
      var retRunner = beforeModule.generateSql(mockTestRunner, tableParsers, parsers,stringUtils);
      assert.equal(mockTestRunner.beforeSql.length, 1);
+     assert.equal(mockTestRunner.beforeSql[0], 'CREATE TABLE FAKE_TABLE ( FAKE_COL_ONE VARCHAR(10),FAKE_ID INT NOT NULL AUTO_INCREMENT,FOR_KEY INT NOT NULL, PRIMARY KEY (FAKE_ID), FOREIGN KEY (FOR_KEY) REFERENCES OTHER_FAKE_TABLE(OTHER_FAKE_ID))');
      
   });
 });

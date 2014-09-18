@@ -5,15 +5,16 @@ module.exports.parse = function (table, stringUtils){
     column = columns[column];
     endOfLine = '';
     if(column.priKey){
-      primaryKey += column.name + ','; 
+      primaryKey += stringUtils.toSqlCase(column.name) + ','; 
     }
-    if(column.fK){
+    if(column.fk){
       foreignKeys.push(column);
     }
     if(column.nul){
       endOfLine += ' NOT NULL';
     }
     if(column.autoInc){
+      
       endOfLine += ' AUTO_INCREMENT';
     }
     sqlString += stringUtils.toSqlCase(column.name) + ' ' + column.type + endOfLine + ',';
@@ -24,7 +25,7 @@ module.exports.parse = function (table, stringUtils){
   }
   if(foreignKeys[0]){
     foreignKeys.forEach(function(column){
-      sqlString += ', FOREIGN KEY ( ' + column.name + ' ) REFERENCES ' + column.fkTable + '( ' + column.fkColumn + ')';
+      sqlString += ', FOREIGN KEY ( ' + column.name + ' ) REFERENCES ' + stringUtils.toSqlCase(column.fkTable) + '( ' + stringUtils.toSqlCase(column.fkColumn) + ')';
     });
   } 
   return sqlString + ')'; 
