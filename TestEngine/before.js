@@ -29,5 +29,13 @@ module.exports.generateSql = function (TestRunner, TableParser, stringUtils){
   return TestRunner;
 }
 
+module.exports.executeBeforeSql = function (TestRunner){
+  var beforeSql = TestRunner.beforeSql, TestRunner.dbConnection = TestRunner.db.createConnection(TestRunner.connection.info);
+  beforeSql.forEach(function(sql){
+    TestRunner.executeQuery(TestRunner.dbConnection, sql, function(err, rows, fields){
+      if(err) throw err;
+    });
+  });
+}
 
 
