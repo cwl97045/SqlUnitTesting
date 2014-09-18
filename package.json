@@ -29,7 +29,8 @@
      "TestRunner" : "models/testRunner.js",
      "DatabaseInterface" : "dbconfig/databaseInterface.js",
      "Row" : "models/row.js",
-     "DBParser" : "Parsers/dbParserRegister.js"
+     "DBParser" : "Parsers/dbParserRegister.js",
+     "BeforeModule" : "TestEngine/before.js"
    }
 
 
