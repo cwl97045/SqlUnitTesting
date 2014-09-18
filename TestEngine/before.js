@@ -34,7 +34,6 @@ module.exports.executeBeforeSql = function (TestRunner, callback){
   beforeSql.forEach(function(sql){
     TestRunner.executeQuery(TestRunner.dbConnection, sql, function(err, rows, fields){
       if(err) throw err;
-    });
   });
   callback();
 };*/
