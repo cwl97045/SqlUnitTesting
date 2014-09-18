@@ -1,7 +1,9 @@
 var Table = require('table'), Column = require('column'), Row = require('Row');
 
 module.exports.beforeTest = function(obj){
-  var userTable = new Table('yell','SmileWithMe', 'mySqlTestConnection');
+  obj.setConnection('mySqlTestConnection');
+  obj.setDatabase('SmileWithMe');
+  var userTable = new Table('yell');
   var idColumn = new Column('ID', 'INT');
   idColumn.primaryKey(true);
   idColumn.autoIncremant(true); 

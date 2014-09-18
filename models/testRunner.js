@@ -12,8 +12,15 @@ module.exports = function(){
     },
     connection : {},
     beforeSql : [],
+    connectionName : '',
     addSql : function(sql){
       this.beforeSql.push(sql);
+    },
+    setConnection : function(conName){
+      this.connectionName = conName;
+    },
+    setDatabase : function(dbName){
+      this.database = dbName;
     }
   };
 };
