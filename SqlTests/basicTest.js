@@ -1,6 +1,6 @@
 var Table = require('table'), Column = require('column'), Row = require('Row');
 
-module.exports.beforeTest = function(obj){
+module.exports.before = function(obj){
   obj.setConnection('mySqlTestConnection');
   obj.setDatabase('SmileWithMe');
   var userTable = new Table('yell');
@@ -21,14 +21,14 @@ module.exports.beforeTest = function(obj){
   dataRow.column('password').value("H@rr");
   obj.addDataRow(dataRow);
   return obj;
-}
+};
 
 module.exports.test = function(obj){
   var result = obj.sqlToTest('SELECT * FROM USER');
 
-}
+};
 
-module.exports.afterTest = function(obj){
+module.exports.after = function(obj){
 
 
-}
+};

@@ -17,7 +17,8 @@
      "grunt-mocha-test" : "*",
      "grunt-named-modules" : "*",
      "grunt-contrib-jshint" : "*",
-     "mysql" : "*"
+     "mysql" : "*",
+     "async" : "*"
    },
    "namedModules" : {
      "table" : "models/table.js",
@@ -30,7 +31,8 @@
      "DatabaseInterface" : "dbconfig/databaseInterface.js",
      "Row" : "models/row.js",
      "DBParser" : "Parsers/dbParserRegister.js",
-     "BeforeModule" : "TestEngine/before.js"
+     "BeforeModule" : "TestEngine/before.js",
+     "AsyncObj" : "models/asyncObj.js"
    }
 
 

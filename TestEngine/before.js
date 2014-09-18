@@ -1,4 +1,4 @@
-var TestRunner = require('TestRunner');
+var TestRunner = require('TestRunner'), async = require('async'), asyncObj = require('AsyncObj');
 
 module.exports.connectionSetUp = function(Test, Connections, databaseInterfaces){
   var setUp = Test.before(new TestRunner()), conn;
@@ -18,25 +18,26 @@ module.exports.generateSql = function (TestRunner, TableParser, dbParser ,string
     definitions.forEach(function(table){
       TestRunner.addSql(TableParser.createTableSql(TestRunner.connection.connectionType,table, dbParser, stringUtils));
     });
-  };
+  }
   if(dataRowsToRun){
-    var dataRowsToRun = TestRunner.dataRows;
-    dataRowsToRun.forEach(function(row){
+    var rows = TestRunner.dataRows;
+    rows.forEach(function(row){
       TestRunner.addSql(TableParser.createRowSql(row, stringUtils));
     });
-  };
+  }
   return TestRunner;
 };
 
-module.exports.executeBeforeSql = function (TestRunner, callback){
-  var beforeSql = TestRunner.beforeSql;
-  TestRunner[dbConnection] = TestRunner.db.createConnection(TestRunner.connection.info);
-  beforeSql.forEach(function(sql){
-    TestRunner.executeQuery(TestRunner.dbConnection, sql, function(err, rows, fields){
-      if(err) throw err;
-    });
+module.exports.executeBeforeSql = function (TestRunner,callback){
+  var beforeSql = TestRunner.beforeSql, dbCalls = [];
+  TestRunner.dbConnection = TestRunner.db.createConnection(TestRunner.connection.info);
+  beforeSql.forEach(function(statement){
+    dbCalls.push(new asyncObj(statement, TestRunner));
   });
-  callback();
+  async.waterfall(dbCalls, function(err){
+    if(err) throw err;
+    callback(testRunner);
+  });
 };
 
 

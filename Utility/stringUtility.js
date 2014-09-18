@@ -4,5 +4,5 @@ module.exports.toSqlCase = function(string){
 
 module.exports.wrapInQuotes = function(string){
   return "'" + string +  "'";
-}
+};
 
