@@ -1,11 +1,9 @@
-var stringUtils = require('stringUtils'), parsers = require('DBParser').register();
-
-module.exports.createTableSql = function(TestRunner,table){
+module.exports.createTableSql = function(TestRunner,table, parsers, stringUtils){
   var connectionType = TestRunner.connection.connectionType;
   return parsers[connectionType.toLowerCase()](table, stringUtils);     
 };
 
-module.exports.createRowSql = function(dataRow){
+module.exports.createRowSql = function(dataRow, stringUtils){
   var sqlStart = 'INSERT INTO ' + stringUtils.toSqlCase(dataRow.table) + ' (', columns = '', values = '';
   for(var prop in dataRow.map){
     columns += stringUtils.toSqlCase(prop) + ',';

@@ -1,8 +1,6 @@
-var tests = require('register').register(), 
-TestRunner = require('TestRunner'), connections = require('propertiesParser'), conn, databaseInterfaces = require('DatabaseInterface')(),
-tableParser = require('tableParser');
+var TestRunner = require('TestRunner');
 
-module.exports.connectionSetUp = function(Test){
+module.exports.connectionSetUp = function(Test, Connections, databaseInterfaces){
   var setUp = Test.before(new TestRunner()), conn;
   connections.readProperties(function(data, err){
     if(err) throw err;
@@ -14,41 +12,20 @@ module.exports.connectionSetUp = function(Test){
   return setUp;
 }
 
-module.exports.before = function (TestRunner){
-  var tableDefinitionToRun = (TestRunner.tableDefinitions.length > 0), sqlToRun = (TestRunner.beforeSql.length > 0)
-  ,dataRowsToRun = (TestRunner.dataRows.length > 0);
-  connections.readProperties(function(data, err){
-    if(err) throw err;
-      conn = data
-  });
+module.exports.generateSql = function (TestRunner, TableParser){
+  var tableDefinitionToRun = (TestRunner.tableDefinitions.length > 0), dataRowsToRun =(TestRunner.dataRows.length > 0);
   if(tableDefinitionToRun){
-    tests.forEach(function(item, index, array){
-      var Runner = item.beforeTest(TestRunner);
-      Runner.tableDefinitions.forEach(function(item, index, array){
-        Runner.connection = conn[item.connection];
-        Runner.db = databaseInterfaces[Runner.connection.connectionType];
-        Runner.dbConnection = Runner.db.createConnection(Runner.connection.info);
-        var statement = tableParser.createTableSql(item);
-        Runner.db.executeQuery(Runner.dbConnection, statement, function(err, rows, fields){
-          if(err) throw err;
-        });
-      });
-  }
-  if(sqlToRun){
-
-
-
-  }
-  if(dataRowsToRun){
-    Runner.dataRows.forEach(function(item,index,array){
-      var statement = tableParser.createRowSql(item);
-      Runner.db.executeQuery(Runner.dbConnection, statement, function(err,rows,fields){
-        if(err) throw err;
-      });
+    var definitions = TestRunner.tableDefinitions;
+    definitions.forEach(function(table){
+      TestRunner.addSql(TableParser.createTableSql(TestRunner, table));
     });
   }
-  });
-  
+  if(dataRowsToRun){
+    var dataRowsToRun = TestRunner.dataRows;
+    dataRowsToRun.forEach(function(){
+    
+    });
+  }
 }
 
 
