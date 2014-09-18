@@ -1,6 +1,5 @@
 
-module.exports.createTableSql = function(TestRunner,table, parsers, stringUtils){
-  var connectionType = TestRunner.connection.connectionType;
+module.exports.createTableSql = function(connectionType, table, parsers, stringUtils){
   return parsers[connectionType.toLowerCase()](table, stringUtils);
 };   
 

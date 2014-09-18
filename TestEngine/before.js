@@ -11,12 +11,12 @@ module.exports.connectionSetUp = function(Test, Connections, databaseInterfaces)
   return setUp;
 };
 
-module.exports.generateSql = function (TestRunner, TableParser, stringUtils){
+module.exports.generateSql = function (TestRunner, TableParser, dbParser ,stringUtils){
   var tableDefinitionToRun = (TestRunner.tableDefinitions.length > 0), dataRowsToRun =(TestRunner.dataRows.length > 0);
   if(tableDefinitionToRun){
     var definitions = TestRunner.tableDefinitions;
     definitions.forEach(function(table){
-      TestRunner.addSql(TableParser.createTableSql(TestRunner,table, TableParser, stringUtils));
+      TestRunner.addSql(TableParser.createTableSql(TestRunner.connection.connectionType,table, dbParser, stringUtils));
     });
   };
   if(dataRowsToRun){

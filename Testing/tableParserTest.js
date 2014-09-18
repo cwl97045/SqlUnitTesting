@@ -13,7 +13,7 @@ describe('Table Parser Test Suite', function(){
     var nameColumn = new Column('name', 'VARCHAR(35)');
     nameColumn.notNull(true);
     newTable.setColumns([idColumn, nameColumn]);
-    var tableSql = tableParser.createTableSql(mockTestRunner, newTable, parsers, stringUtils);	
+    var tableSql = tableParser.createTableSql(mockTestRunner.connection.connectionType, newTable, parsers, stringUtils);	
     assert.equal(tableSql,'CREATE TABLE USER ( ID INT NOT NULL AUTO_INCREMENT,NAME VARCHAR(35) NOT NULL, PRIMARY KEY (ID))');
   });
 });
