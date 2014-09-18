@@ -28,6 +28,10 @@ module.exports = function(){
         that.results = rows;
       });
     },
-    results : {}
+    results : {},
+    testResults : [],
+    addTestResult : function(testResult){
+      this.testResults.push(testResult);
+    }
   };
 };
