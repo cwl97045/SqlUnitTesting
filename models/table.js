@@ -1,4 +1,4 @@
-module.exports = function(name, database, connection){
+module.exports = function(name){
    return {
      name : name,
      columns : [],
