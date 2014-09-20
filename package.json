@@ -35,6 +35,7 @@
     "DBParser": "Parsers/dbParserRegister.js",
     "BeforeModule": "TestEngine/before.js",
     "AsyncObj": "models/asyncObj.js",
-    "AfterModule": "TestEngine/after.js"
+    "AfterModule": "TestEngine/after.js",
+    "FileUtility" : "Utility/fileUtility.js"
   }
 }	
