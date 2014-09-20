@@ -1,40 +1,40 @@
 {
-  "name" : "SqlUnitTesting",
-  "version" : "0.0.1",
-  "description" : "With the growing complexity of SQL queries, we need to be able to test our SQL to ensure it is doing everything it should be doing.",
-  "author" : "Cwl97045 <laytonsunlimited@gmail.com>",
-   "repository" : {
-     "type" : "git",
-     "url" : "https://github.com/cwl97045/SqlUnitTesting.git"
-   },
-   "scripts" : {
-     "postinstall" : "grunt namedModules"
-   },
-   "dependencies" : {
-     "chai" : "*",
-     "mocha" : "*",
-     "grunt" : "*",
-     "grunt-mocha-test" : "*",
-     "grunt-named-modules" : "*",
-     "grunt-contrib-jshint" : "*",
-     "mysql" : "*",
-     "async" : "*"
-   },
-   "namedModules" : {
-     "table" : "models/table.js",
-     "column" : "models/column.js",
-     "propertiesParser" : "Parsers/propertiesParser.js",
-     "stringUtils" : "Utility/stringUtility.js",
-     "tableParser" : "Parsers/tableParser.js",
-     "register" : "SqlTests/register.js",
-     "TestRunner" : "models/testRunner.js",
-     "DatabaseInterface" : "dbconfig/databaseInterface.js",
-     "Row" : "models/row.js",
-     "DBParser" : "Parsers/dbParserRegister.js",
-     "BeforeModule" : "TestEngine/before.js",
-     "AsyncObj" : "models/asyncObj.js",
-     "AfterModule" : "TestEngine/after.js"
-   }
-
-
-}
+  "name": "SqlUnitTesting",
+  "version": "0.0.1",
+  "description": "With the growing complexity of SQL queries, we need to be able to test our SQL to ensure it is doing everything it should be doing.",
+  "author": "Cwl97045 <laytonsunlimited@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cwl97045/SqlUnitTesting.git"
+  },
+  "scripts": {
+    "postinstall": "grunt namedModules"
+  },
+  "dependencies": {
+    "async": "*",
+    "chai": "*",
+    "ejs": "^1.0.0",
+    "express": "^4.9.4",
+    "grunt": "*",
+    "grunt-contrib-jshint": "*",
+    "grunt-mocha-test": "*",
+    "grunt-named-modules": "*",
+    "mocha": "*",
+    "mysql": "*"
+  },
+  "namedModules": {
+    "table": "models/table.js",
+    "column": "models/column.js",
+    "propertiesParser": "Parsers/propertiesParser.js",
+    "stringUtils": "Utility/stringUtility.js",
+    "tableParser": "Parsers/tableParser.js",
+    "register": "SqlTests/register.js",
+    "TestRunner": "models/testRunner.js",
+    "DatabaseInterface": "dbconfig/databaseInterface.js",
+    "Row": "models/row.js",
+    "DBParser": "Parsers/dbParserRegister.js",
+    "BeforeModule": "TestEngine/before.js",
+    "AsyncObj": "models/asyncObj.js",
+    "AfterModule": "TestEngine/after.js"
+  }
+}	

@@ -1,0 +1,17 @@
+	<html>
+  <head>
+    <title>Sql Unit Testing Suite</title>
+  </head>
+  <body>
+    <h1>SQL Unit Tests: </h1>
+    <ul>
+      <% for(var i = 0; i < tests.length; i++) { %>
+           <li>
+             <a href="test/<%= tests[i] %>">
+               <%= tests[i] %>
+             </a>
+           </li>
+      <% } %>
+    </ul>
+  </body>
+</html>

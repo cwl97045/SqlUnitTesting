@@ -6,7 +6,9 @@ Tests.forEach(function(test){
   beforeModule.executeBeforeSql(testRunner, function(testRunner){
     console.log('Tables created and data loaded!');
     testRunner = afterModule.grabCleanUp(test, testRunner);
-    console.log(testRunner);
+    /*
+       ACTUAL TESTING SHOULD OCCUR SOMEWHERE IN HERE
+    */
     afterModule.cleanUp(testRunner,function(){
       console.log('Tables delted and data removed :(');
     });
