@@ -15,6 +15,7 @@ router.get('/', function(req,res){
 
 router.get('/test', function(req, res){
   var test = fileUtils.getNamesOfAllFilesInTheDirectory(fs, 'Tests');
+  console.log(test);
   res.render('index', {tests: test});
 });
 
@@ -38,5 +39,5 @@ router.get('/test/:testName', function(req, res){
 });
 
 app.use('/', router);
-
+app.use(express.static(__dirname, 'css'));
 app.listen(3000);

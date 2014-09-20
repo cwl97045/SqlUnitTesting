@@ -1,17 +1,24 @@
 <html>
   <head>
     <title>Sql Unit Testing Suite</title>
+    <link rel="stylesheet" type="text/css" href="/views/assets/app.css"/>
   </head>
   <body>
     <h1>Create New Test</h1>
+    <hr />
     <form action="new" method="POST" enctype="application/x-www-form-urlencoded">
-      <label>Title
+      <div>
+        <label for="title">Title</label> 
         <input name="title" type="text"></input>
-      </label>
-      <label>Content
-        <input name="content" type="text"></input>
-      </label>
+      </div>
+      <br/>
+      <div>
+        <label>Content</label>
+        <textarea name="content" type="text"></textarea>
+      </div>
+      <br/>
       <input type="submit"/>
+      <button formaction="/test" formmethod="GET">Cancel</button>
     </form>
   </body>
 </html>
