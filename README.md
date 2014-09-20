@@ -6,7 +6,7 @@ Version
 
 Purpose
 --------
-* Wanted to build something cool that could assist me at my job, which often requires complex sql to following very specific rules.
+* Wanted to build something cool that could assist me at my job, which often requires complex sql to following very specific rules. Once I get the base framework built I'll be splitting the Wiki interface version into it's own branch to keep things clean and seperate.
 
 Current Features
 ----------------
