@@ -15,8 +15,11 @@ router.get('/', function(req,res){
 
 router.get('/test', function(req, res){
   var test = fileUtils.getNamesOfAllFilesInTheDirectory(fs, 'Tests');
-  console.log(test);
   res.render('index', {tests: test});
+});
+
+router.post('/test', function(req,res){
+  res.redirect('/test');
 });
 
 router.get('/test/new', function(req, res){
@@ -24,7 +27,8 @@ router.get('/test/new', function(req, res){
 });
 
 router.post('/test/new', function(req, res){
-  fileUtils.createFileWithContent(fs,'Tests/' +req.body.title, req.body.content, function(err, data){
+  console.log(req.body);
+  fileUtils.createFileWithContent(fs,'Tests/',req.body.title, req.body.content, function(err, data){
     if(err) throw err;
     res.redirect('/test');
   });
