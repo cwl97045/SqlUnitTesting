@@ -23,12 +23,18 @@ router.get('/test/new', function(req, res){
 });
 
 router.post('/test/new', function(req, res){
-  console.log(req);
-  res.redirect('/test');
+  fileUtils.createFileWithContent(fs,'Tests/' +req.body.title, req.body.content, function(err, data){
+    if(err) throw err;
+    res.redirect('/test');
+  });
 });
 
 router.get('/test/:testName', function(req, res){
-  res.send('This is the ' + req.params.testName + '!');
+  var name = req.params.testName;
+  var content = fileUtils.grabFileContentsFromDirectoryByName(fs, 'Tests/', name);
+  //get file's content
+  //parse the wiki-style into valid html
+  res.render('TestView', {name : name,content : content});
 });
 
 app.use('/', router);
