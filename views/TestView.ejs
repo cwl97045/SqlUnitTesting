@@ -3,8 +3,16 @@
     <title>Sql Unit Testing Suite</title>
   </head>
   <body>
-    <h1 style="margin-bottom : 0"><%= name %></h1>
-    <hr style="margin-top : 0"/>
-    <%= content %>
-  </body>
+    <h1 style="float: left;margin-bottom : 0"><%= name %></h1>
+    <a style="float:right; margin-bottom: 0;" href="update">
+      <button>Edit</button>
+    </a>
+    <a style="float:right; margin-right: 7px; margin-bottom : 0;" href="delete">
+      <button>Delete</button>
+    </a>
+    <hr style="margin-top : 0; clear:both;"/>
+   <div style="white-space :pre; border:1px solid black;"> 
+     <p style="padding:0; margin:0;"><%= content %></p>
+   </div>
+   </body>
 </html>

@@ -36,10 +36,11 @@ router.post('/test/new', function(req, res){
 
 router.get('/test/:testName', function(req, res){
   var name = req.params.testName;
-  var content = fileUtils.grabFileContentsFromDirectoryByName(fs, 'Tests/', name);
+  var contents = fileUtils.grabFileContentsFromDirectoryByName(fs, 'Tests/', name);
+  console.log(contents);
   //get file's content
   //parse the wiki-style into valid html
-  res.render('TestView', {name : name,content : content});
+  res.render('TestView', {name : name,content : contents});
 });
 
 app.use('/', router);
