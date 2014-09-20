@@ -12,13 +12,17 @@
   },
   "dependencies": {
     "async": "*",
+    "body-parser": "^1.8.3",
     "chai": "*",
+    "ee-first": "^1.0.5",
     "ejs": "^1.0.0",
     "express": "^4.9.4",
     "grunt": "*",
     "grunt-contrib-jshint": "*",
     "grunt-mocha-test": "*",
     "grunt-named-modules": "*",
+    "iconv-lite": "^0.4.4",
+    "mime-types": "^2.0.1",
     "mocha": "*",
     "mysql": "*"
   },
@@ -36,6 +40,6 @@
     "BeforeModule": "TestEngine/before.js",
     "AsyncObj": "models/asyncObj.js",
     "AfterModule": "TestEngine/after.js",
-    "FileUtility" : "Utility/fileUtility.js"
+    "FileUtility": "Utility/fileUtility.js"
   }
-}	
+}

@@ -3,6 +3,9 @@ var app = express();
 var fs = require('fs');
 var router = express.Router();
 var fileUtils = require('FileUtility');
+var bodyparser = require('body-parser');
+app.use(bodyparser.json());
+app.use(bodyparser.urlencoded({ extended: false }));
 
 app.set('view engine', 'ejs');
 
@@ -16,10 +19,11 @@ router.get('/test', function(req, res){
 });
 
 router.get('/test/new', function(req, res){
-  res.send('you want make new test?');
+  res.render('CreateTestView');
 });
 
 router.post('/test/new', function(req, res){
+  console.log(req);
   res.redirect('/test');
 });
 
