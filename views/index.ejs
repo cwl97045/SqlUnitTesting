@@ -4,14 +4,18 @@
   </head>
   <body>
     <h1>SQL Unit Tests: </h1>
-    <ul>
-      <% for(var i = 0; i < tests.length; i++) { %>
-           <li>
-             <a href="test/<%= tests[i] %>">
-               <%= tests[i] %>
-             </a>
-           </li>
-      <% } %>
-    </ul>
+    <% if(tests && tests[0]){ %>
+      <ul>
+        <% for(var i = 0; i < tests.length; i++) { %>
+          <li>
+            <a href="test/<%= tests[i] %>">
+              <%= tests[i] %>
+            </a>
+          </li>
+        <% } %>
+      </ul>
+    <% } else { %>
+      <p>No Tests have been created! Create a <a href="test/new">new</a> one?</p>
+    <% } %>
   </body>
 </html>

@@ -4,17 +4,23 @@ var fs = require('fs');
 var router = express.Router();
 var fileUtils = require('FileUtility');
 
-
 app.set('view engine', 'ejs');
 
-var test = fileUtils.getNamesOfAllFilesInTheDirectory(fs, 'Tests');
-test = test.	map(function(item){
-  return item.split('.')[0];
+router.get('/', function(req,res){
+  res.redirect('/test');
 });
 
-router.get('/', function(req, res){
-  //Greeting page/Test list view page
+router.get('/test', function(req, res){
+  var test = fileUtils.getNamesOfAllFilesInTheDirectory(fs, 'Tests');
   res.render('index', {tests: test});
+});
+
+router.get('/test/new', function(req, res){
+  res.send('you want make new test?');
+});
+
+router.post('/test/new', function(req, res){
+  res.redirect('/test');
 });
 
 router.get('/test/:testName', function(req, res){
