@@ -8,25 +8,6 @@ Purpose
 --------
 * Wanted to build something cool that could assist me at my job, which often requires complex sql to following very specific rules. Once I get the base framework built I'll be splitting the Wiki interface version into it's own branch to keep things clean and seperate.
 
-Current Features
-----------------
- * none
- 
-
-Developed + Tested Things
-----------------
-* Before Test Module - Encompasses Properties Parsing, Table Parsing and many more modules
-
-
-Currently Developing
-----------------------
-* Test Module
-
-
-Planning
---------
-* Features that will actually make this thing work
-* Fitnesse over the top implementation
 
 Contributing
 --------
