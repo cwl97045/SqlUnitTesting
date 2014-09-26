@@ -27,6 +27,7 @@ Knock yourself out
 Running it
 ----------
 Currently depends on having a mySql connection set in the properties file. But once there is a working connection
+Before test and after test modules are working, still need to build out the test module whenever I get some free time.
 ```sh
   node TestEngine/engine.js 
 ```
